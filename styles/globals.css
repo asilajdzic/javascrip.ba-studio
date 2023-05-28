@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+	.border-js_yellow {
+		border-color: theme('colors.js_yellow');
+	}
+}
+
+.app {
+	@apply flex flex-col min-h-screen;
+}
+
+.custom_button {
+	@apply bg-js_black self-end hover:bg-js_yellow text-white font-semibold py-2 px-4 rounded-lg;
+}
+
+.nav {
+	@apply flex justify-end w-full mb-6 p-16 gap-5 pt-3 pb-0 shadow-lg overflow-x-hidden;
+}
+
+.nav_link {
+	@apply font-roboto mb-3 text-sm text-gray-500 outline-0 uppercase;
+}
+
+.dropdown {
+	@apply flex flex-col absolute z-10 bg-white w-28 left-14 p-2 items-start;
+}
+
+.dropdown_link {
+	@apply text-sm mx-4 font-roboto text-gray-700 hover:text-gray-500 font-medium uppercase;
+}
