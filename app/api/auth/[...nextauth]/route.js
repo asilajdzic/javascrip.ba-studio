@@ -33,7 +33,7 @@ const options = {
 				if (!validPassword) {
 					throw new Error('Invalid password');
 				}
-				return { id: user.id, email: user.email };
+				return { email: user.email };
 			},
 		}),
 	],
@@ -43,6 +43,13 @@ const options = {
 	session: {
 		jwt: true,
 		maxAge: 30 * 24 * 60 * 60,
+	},
+	callbacks: {
+		async session({ session }) {
+			const sessionUser = await Author.findOne({ email: session.user.email });
+			session.user.id = sessionUser._id.toString();
+			return session;
+		},
 	},
 };
 
