@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 
 import PostForm from '@components/PostForm';
+import BlockedContent from '@components/BlockedContent';
 
 const defaultFormFields = {
 	technology: 'javascript',
