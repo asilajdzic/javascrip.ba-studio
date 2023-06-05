@@ -6,7 +6,6 @@ import { useSession } from 'next-auth/react';
 import BlockedContent from '@components/BlockedContent';
 
 const defaultFormFields = {
-	creator: '',
 	first_name: '',
 	last_name: '',
 	email: '',
@@ -29,7 +28,6 @@ const AddAuthor = () => {
 			await fetch('/api/authors/add-author', {
 				method: 'POST',
 				body: JSON.stringify({
-					creator: session.user.id,
 					first_name: formFields.first_name,
 					last_name: formFields.last_name,
 					email: formFields.email,
@@ -44,6 +42,7 @@ const AddAuthor = () => {
 		} catch (error) {
 			console.log(error);
 		}
+		setFormFields(defaultFormFields);
 	};
 
 	const handleChange = (e) => {

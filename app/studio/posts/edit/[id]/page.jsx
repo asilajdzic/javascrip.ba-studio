@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useParams } from 'next/navigation';
+import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
 import PostForm from '@components/PostForm';
@@ -21,6 +22,7 @@ const EditPost = () => {
 	const [post, setPost] = useState(defaultFormFields);
 	const params = useParams();
 	const router = useRouter();
+	const session = useSession();
 
 	useEffect(() => {
 		const fetchPost = async () => {
@@ -64,7 +66,7 @@ const EditPost = () => {
 			{session ? (
 				<PostForm
 					type={'Edit Post'}
-					formFields={formFields}
+					formFields={post}
 					handleChange={handleChange}
 					handleFormSubmit={handleFormSubmit}
 				/>
