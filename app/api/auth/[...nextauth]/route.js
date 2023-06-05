@@ -47,7 +47,6 @@ const options = {
 	callbacks: {
 		async session({ session }) {
 			const sessionUser = await Author.findOne({ email: session.user.email });
-			console.log(sessionUser._id);
 			session.user.id = sessionUser._id.toString();
 			return session;
 		},

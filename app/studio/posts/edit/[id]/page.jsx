@@ -22,7 +22,7 @@ const EditPost = () => {
 	const [post, setPost] = useState(defaultFormFields);
 	const params = useParams();
 	const router = useRouter();
-	const session = useSession();
+	const { data: session } = useSession();
 
 	useEffect(() => {
 		const fetchPost = async () => {

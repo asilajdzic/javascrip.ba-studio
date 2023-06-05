@@ -18,11 +18,11 @@ const defaultFormFields = {
 
 const AddPost = () => {
 	const [formFields, setFormFields] = useState(defaultFormFields);
-	const session = useSession();
+	const { data: session } = useSession();
 
 	const handleFormSubmit = async (e) => {
 		e.preventDefault();
-
+		console.log(session.user.id);
 		try {
 			await fetch('/api/posts/add-post', {
 				method: 'POST',

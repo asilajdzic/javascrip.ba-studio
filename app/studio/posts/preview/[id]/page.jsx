@@ -10,7 +10,7 @@ import BlockedContent from '@components/BlockedContent';
 const Post = () => {
 	const [post, setPost] = useState(null);
 	const params = useParams();
-	const session = useSession();
+	const { data: session } = useSession();
 
 	useEffect(() => {
 		const fetchPost = async () => {
